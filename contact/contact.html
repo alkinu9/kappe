@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>kappe CONTACT</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="contact.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=<ваш API-ключ>&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+<div class="menu-mobile">
+    <div class="menu-icon__wrapper">
+        <span class="menu-icon__elem menu-icon__elem-1"></span>
+        <span class="menu-icon__elem menu-icon__elem-2"></span>
+        <span class="menu-icon__elem menu-icon__elem-3"></span>
+    </div>
+    <div class="menu__logo-wrapper">
+        <a href="" class="logo__link"><img src="../main__img/logo.png" alt="kappe" class="logo menu__logo"></a>
+    </div>
+</div>
+<div class="menu mobile_hidden">
+    <div class="menu__logo-wrapper">
+        <a href="../home/home.html" class="logo__link"><img src="../main__img/logo-work.png" alt="kappe" class="logo menu__logo"></a>
+    </div>
+    <nav class="menu__nav-top">
+        <a href="../home/home.html" class="nav-top__elem">HOME</a>
+        <a href="../work/work.html" class="nav-top__elem">WORK</a>
+        <a href="../about/about.html" class="nav-top__elem ">ABOUT</a>
+        <a href="#" class="nav-top__elem this-page">CONTACT</a>
+    </nav>
+    <div class="menu__social">
+        <a href="#" class="social__elem"><img src="../main__img/google.png" alt="" class="social__icon google"></a>
+        <a href="#" class="social__elem"><img src="../main__img/tw.png" alt="" class="social__icon twitter"></a>
+        <a href="#" class="social__elem"><img src="../main__img/pinterest.png" alt="" class="social__icon pinterest"></a>
+        <a href="#" class="social__elem"><img src="../main__img/fb.png" alt="" class="social__icon fb"></a>
+    </div>
+    <footer class="menu__footer">
+        <p class="footer__elem">© 2014 Kappe, All Rights Reserved</p>
+    </footer>
+</div>
+<main class="content">
+    <div class="content__wrapper">
+            <div id="map"></div>
+        <div class="content-info__wrapper active">
+            <img src="../main__img/info.svg" alt="form" class="content-info__btn">
+        </div>
+        <div class="content-send hidden">
+            <div class="content-send__close">
+                <span class="content-send__close-elem content-send__close-elem-1"></span>
+                <span class="content-send__close-elem content-send__close-elem-2"></span>
+            </div>
+            <div class="content-send__wrapper">
+                <p class="section__title">Get in touch with us</p>
+                <p class=" content-send__text content-text__elem">Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.</p>
+            </div>
+            <form action="#btn" class="content-send__form">
+                <p class="section__title">Send us a message</p>
+                <div class="content-send__wrapper">
+                    <div class="content-send__form-left content-send__box">
+                        <div class="content-send__elem">
+                            <span class="content-send__icon content-send__icon-1"></span>
+                            <input type="text" class="content-send__input" placeholder="Name">
+                        </div>
+                        <div class="content-send__elem">
+                            <span class="content-send__icon content-send__icon-2"></span>
+                            <input type="text" class="content-send__input" placeholder="e-mail">
+                        </div>
+                        <div class="content-send__elem">
+                            <span class="content-send__icon content-send__icon-3"></span>
+                            <input type="text" class="content-send__input" placeholder="website">
+                        </div>
+                    </div>
+
+                    <div class="content-send__form-right content-send__box">
+                        <textarea class="content-send__elem-message" placeholder="Message"></textarea>
+                        <button type="button" class="content-send__btn" id="btn">SEND NOW!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<script src="../main.js"> </script>
+<script>
+    ymaps.ready(init);
+    function init(){
+        // Создание карты.
+        let myMap = new ymaps.Map("map", {
+            center: [55.7525,37.6309],
+            zoom: 13,
+            controls:[],
+            behaviors:[],
+            autoFitToViewport: 'always'
+        });
+        let myPlacemark1 = new ymaps.Placemark([55.7299,37.6400], {
+            hintContent: 'Встречаемся тут!',
+            balloonContent: 'Встречаемся тут!'
+        });
+        myMap.geoObjects.add(myPlacemark1);
+    }
+    document.querySelector('.content-info__wrapper').onclick = function () {
+        document.querySelector('.content-send').classList.toggle('hidden');
+        document.querySelector('.content-info__wrapper').classList.toggle('active');
+    };
+    document.querySelector('.content-send__close').onclick = function () {
+        document.querySelector('.content-send').classList.toggle('hidden');
+        document.querySelector('.content-info__wrapper').classList.toggle('active');
+    }
+
+</script>
+</body>
+</html>

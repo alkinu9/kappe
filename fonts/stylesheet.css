@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'SohoGothicW04';
+    src: url('SohoGothicW04-Light.eot');
+    src: url('SohoGothicW04-Light.eot?#iefix') format('embedded-opentype'),
+        url('SohoGothicW04-Light.woff2') format('woff2'),
+        url('SohoGothicW04-Light.woff') format('woff'),
+        url('SohoGothicW04-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
